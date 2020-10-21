@@ -4,6 +4,26 @@ header {
     width: 100%;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
     display: flex;
-    justify-content: center;
     align-items: center;
+
+    .ba-nav-left {
+        flex: 1;
+    }
+
+    .ba-nav-center {
+        div {
+            display: inline;
+
+            & + :not(:first-child) {
+                margin-left: 20px;
+            }
+        }
+    }
+
+    .ba-nav-right {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        border: 1px solid blue;
+    }
 }
