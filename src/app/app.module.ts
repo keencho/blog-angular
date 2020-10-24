@@ -44,6 +44,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import { FooterComponent } from './components/common/footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { FooterComponent } from './components/common/footer/footer.component';
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

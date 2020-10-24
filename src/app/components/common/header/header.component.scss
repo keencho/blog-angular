@@ -1,3 +1,5 @@
+@import "src/app/styles/color";
+
 header {
     background-color: #ffffff;
     height: 64px;
@@ -13,9 +15,16 @@ header {
     .ba-nav-center {
         div {
             display: inline;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 500;
 
-            & + :not(:first-child) {
-                margin-left: 20px;
+            &:hover {
+                color: $hover-default-color;
+            }
+
+            &:not(:first-child) {
+                margin-left: 50px;
             }
         }
     }
@@ -24,6 +33,5 @@ header {
         flex: 1;
         display: flex;
         justify-content: flex-end;
-        border: 1px solid blue;
     }
 }
