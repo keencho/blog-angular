@@ -1,4 +1,4 @@
-@import "src/app/styles/color";
+@import "../../../assets/styles/color";
 
 header {
     background-color: #ffffff;
@@ -10,14 +10,26 @@ header {
 
     .ba-nav-left {
         flex: 1;
+        
+        .mat-icon {
+            visibility: hidden;
+        }
     }
 
     .ba-nav-center {
         div {
             display: inline;
             cursor: pointer;
-            font-size: 20px;
-            font-weight: 500;
+            font-size: 18px;
+            font-weight: 600;
+
+            &.active {
+                color: $active-default-color;
+            }
+
+            &:focus {
+                outline: none;
+            }
 
             &:hover {
                 color: $hover-default-color;
@@ -33,5 +45,31 @@ header {
         flex: 1;
         display: flex;
         justify-content: flex-end;
+
+        * {
+            cursor: pointer;
+            margin-right: 20px;
+
+            &:last-child {
+                margin-right: 40px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 767px){
+        .ba-nav-left {
+            .mat-icon {
+                font-size: 35px;
+                margin-left: 20px;
+                cursor: pointer;
+                visibility: visible;
+            }
+        }
+
+        .ba-nav-center {
+            div {
+                display: none;
+            }
+        }
     }
 }

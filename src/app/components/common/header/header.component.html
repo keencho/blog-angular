@@ -1,13 +1,17 @@
 <header>
-    <div class="ba-nav-left"></div>
+    <div class="ba-nav-left">
+        <mat-icon>format_list_bulleted</mat-icon>
+    </div>
     <div class="ba-nav-center">
-        <div>HOME</div>
+        <div [routerLink]="['/main']" routerLinkActive="active">HOME</div>
         <div>CATEGORY</div>
         <div>CONTACT</div>
     </div>
     <div class="ba-nav-right">
-        <fa-icon size="2x" [icon]="faGithub"></fa-icon>
+        <fa-icon size="2x" [icon]="faHome" (click)="goToURL('https://keencho.com')"></fa-icon>
+        <fa-icon size="2x" [icon]="faGithub" (click)="goToURL('https://github.com/keencho')"></fa-icon>
+        <fa-icon size="2x" [icon]="faEnvelope" (click)="sendEmail()"></fa-icon>
     </div>
 </header>
 
-<mat-icon style="font-size: 40px">format_list_bulleted</mat-icon>
+
