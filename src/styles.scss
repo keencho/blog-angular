@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import './src/app/assets/styles/font.scss';
 
-html, body { height: 100%; }
-body { margin: 0; }
+html, body { height: 100%; margin: 0; padding: 0; }
+
+div.wrapper { position:relative; min-height:100%; }
 
 // 이런식으로 기본 폰트를 변경할수 있다.
 @import '~@angular/material/theming';

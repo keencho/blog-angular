@@ -1,5 +1,7 @@
+@import "../../assets/styles/size";
+
 .ba-main-intro {
-    height: 220px;
+    height: $main-intro-height;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,4 +26,9 @@
             font-weight: 500;
         }
     }
+}
+
+.ba-main-list-wrapper {
+    background-color: #eee;
+    min-height: calc(100vh - #{$header-height} - #{$main-intro-height} - #{$footer-height});
 }
