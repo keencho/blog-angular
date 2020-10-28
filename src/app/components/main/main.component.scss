@@ -29,7 +29,11 @@
 }
 
 .ba-main-list-wrapper {
-    background-color: #eee;
+    background-color: #F5F5F5;
     box-shadow: 0 -2px 5px 0 rgba(0,0,0,.16), 0 -2px 10px 0 rgba(0,0,0,.12);
-    min-height: calc(100vh - #{$header-height} - #{$main-intro-height} - #{$footer-height});
+    min-height: $min-height-header-intro-footer;
+
+    .container {
+        padding-top: 3rem;
+    }
 }
