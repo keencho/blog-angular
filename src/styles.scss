@@ -3,8 +3,6 @@
 
 html, body { height: 100%; margin: 0; padding: 0; }
 
-div.wrapper { position:relative; min-height:100%; }
-
 // 이런식으로 기본 폰트를 변경할수 있다.
 @import '~@angular/material/theming';
 $custom-typography: mat-typography-config(
