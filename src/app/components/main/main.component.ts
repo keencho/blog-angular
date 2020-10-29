@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { mobileMaxWidth } from '../../assets/styles/size';
 
 export interface Tile {
   color: string;
@@ -14,16 +15,29 @@ export interface Tile {
 })
 export class MainComponent implements OnInit {
 
+  mainListCols = 4;
+  mainTileCols;
+  sideTileCols;
+
   tiles: Tile[] = [
     {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
+    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
   ];
 
-  constructor() { }
+  chkWidth(): void {
+    const width = window.innerWidth;
+
+    if (width < mobileMaxWidth) {
+      this.mainTileCols = 4;
+      this.sideTileCols = 4;
+    }  else {
+      this.mainTileCols = 3;
+      this.sideTileCols = 1;
+    }
+  }
 
   ngOnInit(): void {
+    this.chkWidth();
   }
 
 }
