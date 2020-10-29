@@ -34,7 +34,24 @@
     min-height: $min-height-header-intro-footer;
 
     .container {
-        padding-top: 3rem;
-        //width: $mobile-max-width;
+        padding: 3rem 0;
+
+        .article-list {
+            background-color: lightgoldenrodyellow;
+
+            ::ng-deep .mat-figure {
+                justify-content: flex-start;
+                flex-direction: column;
+            }
+
+            .article {
+                border: 1px solid;
+            }
+        }
+
+        .sidebar {
+            height: 500px;
+            background-color: lightgreen;
+        }
     }
 }

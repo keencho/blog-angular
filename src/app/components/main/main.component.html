@@ -12,12 +12,16 @@
 <div class="ba-main-list-wrapper">
     <div class="container">
 
-        <mat-grid-list cols="{{mainListCols}}" rowHeight="400px" (window:resize)="chkWidth()">
-            <mat-grid-tile colspan="{{mainTileCols}}" rowspan="1" style="background: yellow">
-                zz
+        <mat-grid-list cols="{{mainListCols}}" (window:resize)="chkWidth()">
+            <mat-grid-tile colspan="{{mainTileCols}}" rowspan="{{articles.length}}" class="article-list">
+                <div *ngFor="let article of articles" class="article">
+                    {{article.contents}}
+                </div>
             </mat-grid-tile>
-            <mat-grid-tile colspan="{{sideTileCols}}" rowspan="1" style="background: green">
-                zz2
+            <mat-grid-tile colspan="{{sideTileCols}}" rowspan="1" class="sidebar">
+                <div>
+                    뮻ㅇㄷㄹ
+                </div>
             </mat-grid-tile>
 <!--            <mat-grid-tile-->
 <!--                    *ngFor="let tile of tiles"-->

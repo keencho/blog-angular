@@ -8,6 +8,10 @@ export interface Tile {
   text: string;
 }
 
+export interface Article {
+  contents: string;
+}
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -22,6 +26,18 @@ export class MainComponent implements OnInit {
   tiles: Tile[] = [
     {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
     {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+  ];
+
+  articles: Article[] = [
+    {contents: 'contents1'},
+    {contents: 'contents2'},
+    {contents: 'contents3'},
+    {contents: 'contents4'},
+    // {contents: 'contents5'},
+    // {contents: 'contents6'},
+    // {contents: 'contents7'},
+    // {contents: 'contents8'},
+    // {contents: 'contents9'}
   ];
 
   chkWidth(): void {
