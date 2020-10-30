@@ -11,18 +11,24 @@
 </div>
 <div class="ba-main-list-wrapper">
     <div class="container">
+        <div class="article-wrapper {{screenClass}}">
+            ㅋㅋ
+        </div>
+        <div class="sidebar-wrapper {{screenClass}}">
+            dd
+        </div>
 
-        <mat-grid-list cols="{{mainListCols}}" (window:resize)="chkWidth()">
-            <mat-grid-tile colspan="{{mainTileCols}}" rowspan="{{articles.length}}" class="article-list">
-                <div *ngFor="let article of articles" class="article">
-                    {{article.contents}}
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile colspan="{{sideTileCols}}" rowspan="1" class="sidebar">
-                <div>
-                    뮻ㅇㄷㄹ
-                </div>
-            </mat-grid-tile>
+
+<!--        <mat-grid-list-->
+<!--                cols="{{mainListCols}}"-->
+<!--                rowHeight="fit"-->
+<!--                (window:resize)="chkWidth()"-->
+<!--                style="min-height: 1000px">-->
+<!--            <mat-grid-tile colspan="{{mainTileCols}}" rowspan="1" class="article-container">-->
+<!--            </mat-grid-tile>-->
+<!--            <mat-grid-tile colspan="{{sideTileCols}}" class="sidebar-container">-->
+<!--                ㅋㅋㅋㅋ-->
+<!--            </mat-grid-tile>-->
 <!--            <mat-grid-tile-->
 <!--                    *ngFor="let tile of tiles"-->
 <!--                    [colspan]="tile.cols"-->
@@ -30,7 +36,7 @@
 <!--                    [style.background]="tile.color">-->
 <!--                {{tile.text}}-->
 <!--            </mat-grid-tile>-->
-        </mat-grid-list>
+<!--        </mat-grid-list>-->
 
     </div>
 </div>

@@ -1,16 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { mobileMaxWidth } from '../../assets/styles/size';
-
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
-
-export interface Article {
-  contents: string;
-}
+/* tslint:disable:no-trailing-whitespace */
+import {Component, HostListener, OnInit} from '@angular/core';
+import {isMobile} from '../../Utils/screen.utils';
 
 @Component({
   selector: 'app-main',
@@ -19,41 +9,19 @@ export interface Article {
 })
 export class MainComponent implements OnInit {
 
-  mainListCols = 4;
-  mainTileCols;
-  sideTileCols;
+  screenClass: string;
 
-  tiles: Tile[] = [
-    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-  ];
+  chkScreen(): void {
+    this.screenClass = isMobile() ? 'mobile' : 'pc';
+  }
 
-  articles: Article[] = [
-    {contents: 'contents1'},
-    {contents: 'contents2'},
-    {contents: 'contents3'},
-    {contents: 'contents4'},
-    // {contents: 'contents5'},
-    // {contents: 'contents6'},
-    // {contents: 'contents7'},
-    // {contents: 'contents8'},
-    // {contents: 'contents9'}
-  ];
-
-  chkWidth(): void {
-    const width = window.innerWidth;
-
-    if (width < mobileMaxWidth) {
-      this.mainTileCols = 4;
-      this.sideTileCols = 4;
-    }  else {
-      this.mainTileCols = 3;
-      this.sideTileCols = 1;
-    }
+  @HostListener('window:resize', ['$event'])
+  onResize(): void {
+    this.chkScreen();
   }
 
   ngOnInit(): void {
-    this.chkWidth();
+    this.chkScreen();
   }
 
 }
