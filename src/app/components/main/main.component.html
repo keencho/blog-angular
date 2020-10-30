@@ -1,46 +1,52 @@
 <app-header></app-header>
 <!--------------------------------------------------->
 <div class="ba-main-intro">
-<!--    <span class="title">-->
-<!--        <strong>KEENCHO'S </strong>BLOG-->
-<!--    </span>-->
-<!--    <span class="welcome">WELCOME ON MY BLOG</span>-->
-<!--    <span class="introduce">-->
-<!--        <em>"기억하고 싶은것들 정리하는 블로그" 입니다.</em>-->
-<!--    </span>-->
+    <span class="title">
+        <strong>KEENCHO'S </strong>BLOG
+    </span>
+    <span class="welcome">WELCOME ON MY BLOG</span>
+    <span class="introduce">
+        <em>"기억하고 싶은것들 정리하는 블로그" 입니다.</em>
+    </span>
 </div>
 <div class="ba-main-list-wrapper">
     <div class="container">
         <div class="article-wrapper {{screenClass}}">
-            ㅋㅋ
+            <div *ngFor="let a of articles" class="article">
+                <img src="{{image}}"/>
+                <div class="info">
+                    <dlv class="title">
+                        <strong>
+                            @Transactional 어노테이션에 대해 araboza
+                        </strong>
+                    </dlv>
+                    <hr>
+                    <div class="summary">
+                        <i>
+                            @Transactional 어노테이션<br><br>
+                            와! 정말 신기해요!!! 와! 정말 신기해요!!! 와! 정말 신기해요!!!<br>
+                            bla bla bla ...
+                        </i>
+                    </div>
+                    <div class="date">
+                        <strong>2020/10/07</strong>
+                    </div>
+                    <div class="tag">
+                        <div>DB</div>
+                        <div>Spring</div>
+                    </div>
+                    <div class="more">
+                        <strong>더보기</strong>
+                        <fa-icon [icon]="faAngleRight"></fa-icon>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="sidebar-wrapper {{screenClass}}">
-            dd
+            <div>사이드바가 들어올꺼에염</div>
         </div>
-
-
-<!--        <mat-grid-list-->
-<!--                cols="{{mainListCols}}"-->
-<!--                rowHeight="fit"-->
-<!--                (window:resize)="chkWidth()"-->
-<!--                style="min-height: 1000px">-->
-<!--            <mat-grid-tile colspan="{{mainTileCols}}" rowspan="1" class="article-container">-->
-<!--            </mat-grid-tile>-->
-<!--            <mat-grid-tile colspan="{{sideTileCols}}" class="sidebar-container">-->
-<!--                ㅋㅋㅋㅋ-->
-<!--            </mat-grid-tile>-->
-<!--            <mat-grid-tile-->
-<!--                    *ngFor="let tile of tiles"-->
-<!--                    [colspan]="tile.cols"-->
-<!--                    [rowspan]="tile.rows"-->
-<!--                    [style.background]="tile.color">-->
-<!--                {{tile.text}}-->
-<!--            </mat-grid-tile>-->
-<!--        </mat-grid-list>-->
-
     </div>
 </div>
-
 
 <!--------------------------------------------------->
 <app-footer></app-footer>
