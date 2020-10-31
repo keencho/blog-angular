@@ -45,13 +45,15 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import { FooterComponent } from './components/common/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { IntroComponent } from './components/common/intro/intro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    IntroComponent
   ],
   imports: [
     BrowserModule,

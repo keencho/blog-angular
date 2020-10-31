@@ -1,0 +1,68 @@
+@import "../../../assets/styles/size";
+
+.ba-main-intro {
+    height: $main-intro-height;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+
+    .title {
+        font-size: 30px;
+    }
+
+    .welcome {
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 400;
+        color: #9e9e9e;
+    }
+
+    .introduce {
+        margin-top: 20px;
+
+        em {
+            font-weight: 500;
+        }
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
