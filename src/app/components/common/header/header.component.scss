@@ -9,11 +9,19 @@ header {
     top: 0;
     z-index: 5;
     background-color: #ffffff;
-    height: $header-height;
     width: 100%;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
     display: flex;
     align-items: center;
+    transition: 0.4s;
+
+    &.on-top {
+        height: $header-height;
+    }
+
+    &.on-scroll {
+        height: $header-height-mini;
+    }
 
     .ba-nav-left {
         flex: 1;
@@ -29,6 +37,7 @@ header {
             cursor: pointer;
             font-size: 18px;
             font-weight: 600;
+            transition: 0.3s;
 
             &.active {
                 color: $active-default-color;

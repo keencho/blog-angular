@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit {
   faEnvelope = faEnvelope;
   faHome = faHome;
 
+  isScroll = false;
+
   // ViewChild로 html의 컴포넌트(?)를 가져올때 해당 컴포넌트에는 type이 지정되어 있어야 하는것같다.
   // 예를들어 아래와같은 경우 html에 #mobileMenu="MatMenuTrigger" 라고 선언이 되어 있어야 한다. 아니면 안됨ㅋ
   @ViewChild('mobileMenuTrigger') mobileMenu: MatMenuTrigger;
@@ -24,6 +26,15 @@ export class HeaderComponent implements OnInit {
   onResize(): void {
     if (window.innerWidth > 766 && this.mobileMenu.menuOpen) {
       this.mobileMenu.closeMenu();
+    }
+  }
+
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll() {
+    if (window.pageYOffset > 50) {
+      this.isScroll = true;
+    } else {
+      this.isScroll = false;
     }
   }
 

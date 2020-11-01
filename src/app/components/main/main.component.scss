@@ -14,11 +14,8 @@
             display: inline-block;
 
             &.article-wrapper {
-                &.pc {
-                    width: 70%;
-                }
-
-                &.mobile {
+                width: 70%;
+                @media screen and (max-width: $mobile-max-width){
                     width: 100%;
                 }
 
@@ -30,7 +27,7 @@
                     transition: all .5s ease;
 
                     &:hover {
-                        transform: scale(1.03);
+                        transform: scale(1.02);
                         transition: all .4s ease;
                     }
 
@@ -77,6 +74,7 @@
                                 padding: 3px 5px;
                                 border-radius: 5px;
                                 color: #fff;
+                                transition: 0.3s;
 
                                 &:not(:first-child) {
                                     margin-left: 5px;
@@ -85,6 +83,10 @@
                                 &:before {
                                     content: "#";
                                 }
+
+                                &:hover {
+                                    background-color: #606060;
+                                }
                             }
                         }
 
@@ -92,6 +94,10 @@
                             cursor: pointer;
                             font-size: 15px;
                             float: right;
+
+                            fa-icon {
+                                margin-left: 5px;
+                            }
                         }
                     }
                 }
@@ -100,13 +106,12 @@
             &.sidebar-wrapper {
                 background-color: dimgrey;
 
-                &.pc {
-                    width: 30%;
-                    position: absolute;
-                }
+                width: 30%;
+                position: absolute;
 
-                &.mobile {
+                @media screen and (max-width: $mobile-max-width){
                     width: 100%;
+                    position: relative;
                 }
             }
         }

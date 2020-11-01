@@ -1,5 +1,5 @@
 <div class="empty-header">ss</div>
-<header>
+<header class="{{isScroll ? 'on-scroll' : 'on-top' }}">
     <div class="ba-nav-left">
         <mat-icon [matMenuTriggerFor]="mobileMenu"
                   #mobileMenuTrigger="matMenuTrigger">
@@ -13,7 +13,7 @@
         </button>
         <button mat-menu-item>
             <mat-icon>category</mat-icon>
-            <span>CATEGORY</span>
+            <span>TAG</span>
         </button>
         <button mat-menu-item>
             <mat-icon>contacts</mat-icon>
@@ -22,7 +22,7 @@
     </mat-menu>
     <div class="ba-nav-center">
         <div [routerLink]="['/main']" routerLinkActive="active">HOME</div>
-        <div>CATEGORY</div>
+        <div>TAG</div>
         <div>CONTACT</div>
     </div>
     <div class="ba-nav-right">
@@ -31,5 +31,3 @@
         <fa-icon size="2x" [icon]="faEnvelope" (click)="sendEmail()"></fa-icon>
     </div>
 </header>
-
-
