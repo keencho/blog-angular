@@ -5,5 +5,14 @@ footer {
     //bottom: 0;
     //width: 100%;
     min-height: $footer-height;
-    background: greenyellow;
+    box-shadow: 0 -1px 10px 0 rgba(0,0,0,.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .footer {
+        padding: 0 25px;
+        width: $default-width;
+        font-size: 12px;
+    }
 }

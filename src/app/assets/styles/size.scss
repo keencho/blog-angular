@@ -6,6 +6,8 @@ $header-height-mini: 48px;
 
 $main-intro-height: 220px;
 
-$footer-height: 70px;
+$footer-height: 50px;
 
 $min-height-header-intro-footer: calc(100vh - #{$header-height} - #{$main-intro-height} - #{$footer-height});
+
+$default-width: 1024px;
