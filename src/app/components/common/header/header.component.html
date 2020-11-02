@@ -1,4 +1,4 @@
-<div class="empty-header">ss</div>
+<div class="empty-header"></div>
 <header class="{{isScroll ? 'on-scroll' : 'on-top' }}">
     <div class="ba-nav-left">
         <mat-icon [matMenuTriggerFor]="mobileMenu"
@@ -28,6 +28,6 @@
     <div class="ba-nav-right">
         <fa-icon size="2x" [icon]="faHome" (click)="goToURL('https://keencho.com')"></fa-icon>
         <fa-icon size="2x" [icon]="faGithub" (click)="goToURL('https://github.com/keencho')"></fa-icon>
-        <fa-icon size="2x" [icon]="faEnvelope" (click)="sendEmail()"></fa-icon>
+        <fa-icon size="2x" [icon]="faEnvelope" (click)="goToURL('mailto:seyoung050412@gmail.com')"></fa-icon>
     </div>
 </header>

@@ -1,0 +1,61 @@
+@import "../../../assets/styles/shadow";
+
+@mixin pagination-default {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+@mixin pagination-hover {
+    background-color: #bdbdbd;
+    border-radius: 5px;
+    color: #ffffff;
+    -webkit-box-shadow: $box-shadow-default;
+    box-shadow: $box-shadow-default;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+
+    .action {
+        @include pagination-default;
+
+        &:hover {
+            @include pagination-hover;
+        }
+    }
+
+    .numbers {
+        display: flex;
+
+        div {
+            @include pagination-default;
+
+            &.active {
+                background-color: #007bff;
+                border-radius: 5px;
+                color: #ffffff;
+                -webkit-box-shadow: $box-shadow-default;
+                box-shadow: $box-shadow-default;
+            }
+
+            &:not(.active):hover {
+                @include pagination-hover;
+            }
+
+            &:first-child {
+                margin-left: 15px;
+            }
+
+            &:last-child {
+                margin-right: 15px;
+            }
+        }
+    }
+
+}

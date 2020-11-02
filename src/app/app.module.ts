@@ -46,6 +46,7 @@ import {MatTableModule} from '@angular/material/table';
 import { FooterComponent } from './components/common/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IntroComponent } from './components/common/intro/intro.component';
+import { PaginationComponent } from './components/common/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { IntroComponent } from './components/common/intro/intro.component';
     MainComponent,
     HeaderComponent,
     FooterComponent,
-    IntroComponent
+    IntroComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

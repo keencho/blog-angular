@@ -1,8 +1,9 @@
-import {Component, HostListener, OnInit, ViewChild, ViewChildren} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import {MatMenu, MatMenuTrigger} from '@angular/material/menu';
+import { MatMenuTrigger} from '@angular/material/menu';
+import {openURL} from '../../../utils/url.util';
 
 @Component({
   selector: 'app-header',
@@ -30,7 +31,7 @@ export class HeaderComponent implements OnInit {
   }
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
-  onScroll() {
+  onScroll():void {
     if (window.pageYOffset > 50) {
       this.isScroll = true;
     } else {
@@ -38,12 +39,8 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  goToURL(url): void {
-    window.open(url, '_blank');
-  }
-
-  sendEmail(): void {
-    window.open('mailto:seyoung050412@gmail.com');
+  goToURL(url: string): void {
+    openURL(url);
   }
 
   constructor() {}
