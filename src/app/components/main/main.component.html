@@ -36,50 +36,7 @@
 
             <app-pagination></app-pagination>
         </div>
-        <div class="sidebar-wrapper">
-            <div class="card">
-                <img src="assets/images/profile.jpg" />
-                <div class="info">
-                    <div class="title">
-                        <strong>keencho</strong>
-                    </div>
-                    <div class="greetings">
-                        <i>
-<!--                            정리하는것을 좋아하는<br>-->
-<!--                            주니어 개발자입니다.-->
-                        </i>
-                    </div>
-                    <div class="actions">
-                        <fa-icon size="2x" [icon]="faGithub" (click)="goToURL('https://github.com/keencho')"></fa-icon>
-                        <fa-icon size="2x" [icon]="faEnvelope" (click)="goToURL('mailto:seyoung050412@gmail.com')"></fa-icon>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="title weight-up">
-                    ARCHIVE
-                </div>
-                <div class="archive" *ngFor="let article of articles">
-                    {{article.article}}
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="title weight-up">
-                    TAGS
-                </div>
-                <div class="tags" *ngFor="let tag of tags">
-                    <span>
-                        {{tag.tag}}
-                    </span>
-                    <span class="count">
-                        {{tag.count}}
-                    </span>
-                </div>
-            </div>
-
-        </div>
+        <app-siderbar></app-siderbar>
     </div>
 </div>
 

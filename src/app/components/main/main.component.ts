@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {faAngleRight} from '@fortawesome/free-solid-svg-icons';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import {openURL} from '../../utils/url.util';
 
 interface Articles {
   article: string;
@@ -22,7 +20,6 @@ export class MainComponent implements OnInit {
 
   faAngleRight = faAngleRight;
   faGithub = faGithub;
-  faEnvelope = faEnvelope;
 
   articles: Articles[] = [
     { article: '2020년 8월' },
@@ -47,10 +44,6 @@ export class MainComponent implements OnInit {
   ]
 
   image = 'https://pfh.goodsflow.com/resources/image/2020-10-30/5755f651-79cb-4746-9f56-c564325665da.jpg';
-
-  goToURL(url: string): void {
-    openURL(url);
-  }
 
   ngOnInit(): void {
   }

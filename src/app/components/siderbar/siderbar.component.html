@@ -1,0 +1,49 @@
+<div class="sidebar-wrapper">
+    <div class="card">
+        <img src="assets/images/profile.jpg" />
+        <div class="info">
+            <div class="title">
+                <strong>keencho</strong>
+            </div>
+            <div class="greetings">
+                <i>
+                    하면된다!<br>
+                    (잘)하면된다..!
+                </i>
+            </div>
+            <div class="actions">
+                <fa-icon size="2x" [icon]="faGithub" (click)="goToURL('https://github.com/keencho')"></fa-icon>
+                <fa-icon size="2x" [icon]="faEnvelope" (click)="goToURL('mailto:seyoung050412@gmail.com')"></fa-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="item">
+            <div class="title weight-up">
+                ARCHIVE
+            </div>
+            <div class="archive"
+                 *ngFor="let ar of sidebarData.archive">
+                {{ar._id}}
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="item">
+            <div class="title weight-up">
+                TAGS
+            </div>
+            <div class="tags" *ngFor="let t of sidebarData.tag">
+                <span>
+                    {{t._id}}
+                </span>
+                <span class="count">
+                    {{t.count}}
+                </span>
+            </div>
+        </div>
+    </div>
+
+</div>

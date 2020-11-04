@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -47,6 +48,7 @@ import { FooterComponent } from './components/common/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IntroComponent } from './components/common/intro/intro.component';
 import { PaginationComponent } from './components/common/pagination/pagination.component';
+import { SiderbarComponent } from './components/siderbar/siderbar.component';
 
 @NgModule({
   declarations: [
@@ -55,13 +57,15 @@ import { PaginationComponent } from './components/common/pagination/pagination.c
     HeaderComponent,
     FooterComponent,
     IntroComponent,
-    PaginationComponent
+    PaginationComponent,
+    SiderbarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     RouterModule,
+    HttpClientModule,
 
     MatAutocompleteModule,
     MatCheckboxModule,
