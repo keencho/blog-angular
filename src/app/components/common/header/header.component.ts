@@ -3,7 +3,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { MatMenuTrigger} from '@angular/material/menu';
-import {openURL} from '../../../utils/url.util';
+import UrlUtils from '../../../utils/url.utils';
 
 @Component({
   selector: 'app-header',
@@ -18,6 +18,10 @@ export class HeaderComponent implements OnInit {
   faHome = faHome;
 
   isScroll = false;
+
+  goToURL(url): void {
+    UrlUtils.openURL(url);
+  }
 
   // ViewChild로 html의 컴포넌트(?)를 가져올때 해당 컴포넌트에는 type이 지정되어 있어야 하는것같다.
   // 예를들어 아래와같은 경우 html에 #mobileMenu="MatMenuTrigger" 라고 선언이 되어 있어야 한다. 아니면 안됨ㅋ
@@ -37,10 +41,6 @@ export class HeaderComponent implements OnInit {
     } else {
       this.isScroll = false;
     }
-  }
-
-  goToURL(url: string): void {
-    openURL(url);
   }
 
   constructor() {}

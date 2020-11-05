@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
-import {openURL} from '../../utils/url.util';
+import UrlUtils from '../../utils/url.utils';
 import {SidebarService} from '../../services/sidebar.service';
 import {Sidebar} from '../../models/sidebar';
 
@@ -12,16 +12,16 @@ import {Sidebar} from '../../models/sidebar';
 })
 export class SiderbarComponent implements OnInit {
 
+  constructor(private sidebarService: SidebarService) { }
+
   faGithub = faGithub;
   faEnvelope = faEnvelope;
 
   sidebarData: Sidebar = {} as any;
 
-  goToURL(url: string): void {
-    openURL(url);
+  goToURL(url): void {
+    UrlUtils.openURL(url);
   }
-
-  constructor(private sidebarService: SidebarService) { }
 
   getSidebarData(): void {
     this.sidebarService.getSidebarData()
