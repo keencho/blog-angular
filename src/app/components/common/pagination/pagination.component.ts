@@ -33,7 +33,6 @@ export class PaginationComponent implements OnInit, OnChanges {
 
       this.currentPage = Math.floor(d.start / d.limit) + 1;
       this.totalPage = Math.ceil(d.count / d.limit);
-      console.log(this.totalPage);
 
       this.totalPageArray = [];
       for (let i = (this.currentPage - 3 <= 0 ? 1 : this.currentPage - 3); i <= this.currentPage + 3; i++) {

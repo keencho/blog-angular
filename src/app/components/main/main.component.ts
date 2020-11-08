@@ -6,6 +6,7 @@ import {PostList} from '../../models/post';
 import StringUtils from '../../utils/string.utils';
 import DateUtils from '../../utils/date.utils';
 import {Paging} from '../../models/paging';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -14,7 +15,13 @@ import {Paging} from '../../models/paging';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private postService: PostService) {}
+  tag: string;
+  date: string;
+
+  constructor(
+      private postService: PostService,
+      private route: ActivatedRoute
+  ) {}
 
   faAngleRight = faAngleRight;
   faGithub = faGithub;
@@ -34,6 +41,7 @@ export class MainComponent implements OnInit {
     const params = {
       start
     };
+
     this.postService.listPost(params)
         .subscribe(result => {
           this.postListData = result.data[0];
@@ -42,7 +50,13 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.listPost(0);
+    // infinite scroll로 바꾸자.
+    this.route.queryParams.subscribe(params => {
+      this.tag = params['tag'];
+      this.date = params['date'];
+
+      this.listPost(0);
+    })
   }
 
 }

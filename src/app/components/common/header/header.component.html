@@ -13,7 +13,7 @@
         </button>
         <button mat-menu-item>
             <mat-icon>category</mat-icon>
-            <span>TAG</span>
+            <span>LIST</span>
         </button>
         <button mat-menu-item>
             <mat-icon>contacts</mat-icon>
@@ -22,7 +22,7 @@
     </mat-menu>
     <div class="ba-nav-center">
         <div [routerLink]="['/main']" routerLinkActive="active">HOME</div>
-        <div>TAG</div>
+        <div [routerLink]="['/post/list']" routerLinkActive="active">LIST</div>
         <div>CONTACT</div>
     </div>
     <div class="ba-nav-right">
