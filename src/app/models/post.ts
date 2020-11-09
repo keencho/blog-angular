@@ -1,6 +1,4 @@
-import {Paging} from './paging';
-
-interface Post {
+export interface Post {
     _id: string;
     created: Date;
     tag: string;
@@ -11,9 +9,4 @@ interface Post {
     contents: string;
     regexContents: string;
     thumbnail: string;
-}
-
-export interface PostList {
-    paging: Paging;
-    rows: [Post];
 }

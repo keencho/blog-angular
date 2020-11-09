@@ -1,11 +1,12 @@
 <app-header></app-header>
 <app-intro></app-intro>
 <!--------------------------------------------------->
+<button (click)="listPost(this.start)">버톤</button>
 <div class="ba-main-list-wrapper">
     <div class="container">
-        <div class="article-wrapper">
-            <div *ngFor="let d of postListData.rows" class="article">
-                <img *ngIf="!isEmpty(d.thumbnail)" src="{{d.thumbnail}}"/>
+        <div class="article-wrapper" (scroll)="onScroll($event)">
+            <div *ngFor="let d of postListData" class="article">
+                <img *ngIf="hasText(d.thumbnail)" src="{{d.thumbnail}}"/>
                 <div class="info">
                     <dlv class="title">
                         <strong>
@@ -32,8 +33,7 @@
                     </div>
                 </div>
             </div>
-
-            <app-pagination [pagingData]="postListPaging" [onClickPage]="onClickPage.bind(this)"></app-pagination>
+<!--            <app-pagination [pagingData]="postListPaging" [onClickPage]="onClickPage.bind(this)"></app-pagination>-->
         </div>
         <app-siderbar></app-siderbar>
     </div>

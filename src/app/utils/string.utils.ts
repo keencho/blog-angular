@@ -1,10 +1,10 @@
 export default {
-    isEmpty: (str) => {
+    hasText: (str) => {
         if (typeof str === 'undefined' || str == null || str === '') {
-            return true;
+            return false;
         }
         else {
-            return false;
+            return true;
         }
     }
 };

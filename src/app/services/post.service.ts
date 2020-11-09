@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ApiResult} from '../models/api-result';
-import {PostList} from '../models/post';
+import {Post} from '../models/post';
 import {limitDefault} from '../models/paging';
 
 @Injectable({
@@ -12,11 +12,11 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  listUrl = '/api/v1/post/list';
+  listUrl = '/api/v1/post/listInfiniteScroll';
 
-  listPost(param): Observable<ApiResult<PostList>> {
+  listPost(param): Observable<ApiResult<Post[]>> {
     param.limit = limitDefault;
-    return this.http.get<ApiResult<PostList>>(
+    return this.http.get<ApiResult<Post[]>>(
         this.listUrl,
         { params: param }
       );

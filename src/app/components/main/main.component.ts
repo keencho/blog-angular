@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {faAngleRight} from '@fortawesome/free-solid-svg-icons';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {PostService} from '../../services/post.service';
-import {PostList} from '../../models/post';
+import {Post} from '../../models/post';
 import StringUtils from '../../utils/string.utils';
 import DateUtils from '../../utils/date.utils';
-import {Paging} from '../../models/paging';
 import {ActivatedRoute} from '@angular/router';
+import {limitDefault} from '../../models/paging';
 
 @Component({
   selector: 'app-main',
@@ -15,6 +15,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class MainComponent implements OnInit {
 
+  start: number;
   tag: string;
   date: string;
 
@@ -26,37 +27,44 @@ export class MainComponent implements OnInit {
   faAngleRight = faAngleRight;
   faGithub = faGithub;
 
-  postListData: PostList = {} as any;
-  postListPaging: Paging = {} as any;
+  postListData: Post[] = [] as any;
 
-  isEmpty = StringUtils.isEmpty;
+  hasText = StringUtils.hasText;
   dateFormatter = DateUtils.dateFormatter;
 
-  onClickPage(start): void {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-    this.listPost(start);
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(event): void {
+    const list = document.querySelectorAll('.article');
+    const lastElement = list[list.length - 1];
+
+    // TODO: 스크롤 높이 계산...
+    // console.log(event.scrollY);
+    // console.log(lastElement.offsetTop);
   }
 
-  listPost(start): void {
+  listPost(start: number): void {
     const params = {
-      start
+      start,
+      tag: StringUtils.hasText(this.tag) ? this.tag : null,
+      date: StringUtils.hasText(this.date) ? this.date : null
     };
 
     this.postService.listPost(params)
         .subscribe(result => {
-          this.postListData = result.data[0];
-          this.postListPaging = result.data[0].paging[0];
+          this.postListData = this.postListData.concat(result.data);
+          this.start += limitDefault;
         });
   }
 
   ngOnInit(): void {
     // infinite scroll로 바꾸자.
     this.route.queryParams.subscribe(params => {
-      this.tag = params['tag'];
-      this.date = params['date'];
+      this.tag = params.tag;
+      this.date = params.date;
+      this.start = 0;
 
-      this.listPost(0);
-    })
+      this.listPost(this.start);
+    });
   }
 
 }
