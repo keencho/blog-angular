@@ -4,6 +4,7 @@ import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {PostService} from '../../services/post.service';
 import {Post} from '../../models/post';
 import StringUtils from '../../utils/string.utils';
+import ScreenUtils from '../../utils/screen.utils';
 import DateUtils from '../../utils/date.utils';
 import {ActivatedRoute} from '@angular/router';
 import {limitDefault} from '../../models/paging';
@@ -18,6 +19,7 @@ export class MainComponent implements OnInit {
   start: number;
   tag: string;
   date: string;
+  requestAvailable = true;
 
   constructor(
       private postService: PostService,
@@ -32,28 +34,33 @@ export class MainComponent implements OnInit {
   hasText = StringUtils.hasText;
   dateFormatter = DateUtils.dateFormatter;
 
-  @HostListener('window:scroll', ['$event']) // for window scroll events
-  onScroll(event): void {
+  @HostListener('window:scroll')
+  onScroll(): void {
     const list = document.querySelectorAll('.article');
     const lastElement = list[list.length - 1];
 
-    // TODO: 스크롤 높이 계산...
-    // console.log(event.scrollY);
-    // console.log(lastElement.offsetTop);
+    if (ScreenUtils.isVisible(lastElement)) {
+      this.listPost(this.start);
+    }
   }
 
   listPost(start: number): void {
-    const params = {
-      start,
-      tag: StringUtils.hasText(this.tag) ? this.tag : null,
-      date: StringUtils.hasText(this.date) ? this.date : null
-    };
+    if (this.requestAvailable) {
+      this.requestAvailable = false;
 
-    this.postService.listPost(params)
-        .subscribe(result => {
-          this.postListData = this.postListData.concat(result.data);
-          this.start += limitDefault;
-        });
+      const params = {
+        start,
+        tag: StringUtils.hasText(this.tag) ? this.tag : null,
+        date: StringUtils.hasText(this.date) ? this.date : null
+      };
+
+      this.postService.listPost(params)
+          .subscribe(result => {
+            this.postListData = this.postListData.concat(result.data);
+            this.start += limitDefault;
+            this.requestAvailable = true;
+          });
+    }
   }
 
   ngOnInit(): void {
