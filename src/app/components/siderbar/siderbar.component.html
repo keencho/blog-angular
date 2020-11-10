@@ -23,8 +23,8 @@
             <div class="title weight-up">
                 ARCHIVE
             </div>
-            <div class="archive"
-                 *ngFor="let ar of sidebarData.archive">
+            <div class="archive" (click)="onClickDate('ALL')">전체</div>
+            <div class="archive" *ngFor="let ar of sidebarData.archive" (click)="onClickDate(ar._id)">
                 {{ar._id}}
             </div>
         </div>
@@ -35,7 +35,11 @@
             <div class="title weight-up">
                 TAGS
             </div>
-            <div class="tags" *ngFor="let t of sidebarData.tag">
+            <div class="tags" (click)="onClickTag('ALL')">
+                <span>전체</span>
+                <span class="count">{{this.sidebarTotal}}</span>
+            </div>
+            <div class="tags" *ngFor="let t of sidebarData.tag" (click)="onClickTag(t._id)">
                 <span>
                     {{t._id}}
                 </span>

@@ -1,20 +1,20 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {faAngleRight} from '@fortawesome/free-solid-svg-icons';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
-import {PostService} from '../../services/post.service';
-import {Post} from '../../models/post';
-import StringUtils from '../../utils/string.utils';
-import ScreenUtils from '../../utils/screen.utils';
-import DateUtils from '../../utils/date.utils';
+import {PostService} from '../../../services/post.service';
+import {Post} from '../../../models/post';
+import StringUtils from '../../../utils/string.utils';
+import ScreenUtils from '../../../utils/screen.utils';
+import DateUtils from '../../../utils/date.utils';
 import {ActivatedRoute} from '@angular/router';
-import {limitDefault} from '../../models/paging';
+import {limitDefault} from '../../../models/paging';
 
 @Component({
   selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  templateUrl: './post.list.component.html',
+  styleUrls: ['./post.list.component.scss']
 })
-export class MainComponent implements OnInit {
+export class PostListComponent implements OnInit {
 
   start: number;
   tag: string;
