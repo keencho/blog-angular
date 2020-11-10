@@ -10,3 +10,8 @@ export interface Post {
     regexContents: string;
     thumbnail: string;
 }
+
+export interface PostListData {
+    count: number;
+    rows: Post[];
+}

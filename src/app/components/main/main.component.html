@@ -1,11 +1,10 @@
 <app-header></app-header>
 <app-intro></app-intro>
 <!--------------------------------------------------->
-<button (click)="listPost(this.start)">버톤</button>
 <div class="ba-main-list-wrapper">
     <div class="container">
-        <div class="article-wrapper" id="articleWrapper" (scroll)="onScroll()">
-            <div *ngFor="let d of postListData" class="article">
+        <div class="article-wrapper" (scroll)="onScroll()">
+            <div *ngFor="let d of postListRows" class="article">
                 <img *ngIf="hasText(d.thumbnail)" src="{{d.thumbnail}}"/>
                 <div class="info">
                     <dlv class="title">

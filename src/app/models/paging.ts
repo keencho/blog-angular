@@ -1,4 +1,4 @@
-export const limitDefault = 2;
+export const limitDefault = 5;
 
 export interface Paging {
     count: number;

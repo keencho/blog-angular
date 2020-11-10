@@ -2,7 +2,7 @@ import {Component, HostListener, OnInit} from '@angular/core';
 import {faAngleRight} from '@fortawesome/free-solid-svg-icons';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {PostService} from '../../services/post.service';
-import {Post} from '../../models/post';
+import {Post, PostListData} from '../../models/post';
 import StringUtils from '../../utils/string.utils';
 import ScreenUtils from '../../utils/screen.utils';
 import DateUtils from '../../utils/date.utils';
@@ -29,7 +29,8 @@ export class MainComponent implements OnInit {
   faAngleRight = faAngleRight;
   faGithub = faGithub;
 
-  postListData: Post[] = [] as any;
+  postListRows: Post[] = [] as any;
+  postListCount: number;
 
   hasText = StringUtils.hasText;
   dateFormatter = DateUtils.dateFormatter;
@@ -39,7 +40,8 @@ export class MainComponent implements OnInit {
     const list = document.querySelectorAll('.article');
     const lastElement = list[list.length - 1];
 
-    if (ScreenUtils.isVisible(lastElement)) {
+    // lastElement가 보이고, list total이 list array length와 같지 않으면 조회함
+    if (ScreenUtils.isVisible(lastElement) && this.postListCount !== this.postListRows.length) {
       this.listPost(this.start);
     }
   }
@@ -56,7 +58,8 @@ export class MainComponent implements OnInit {
 
       this.postService.listPost(params)
           .subscribe(result => {
-            this.postListData = this.postListData.concat(result.data);
+            this.postListRows = this.postListRows.concat(result.data.rows);
+            this.postListCount = result.data.count;
             this.start += limitDefault;
             this.requestAvailable = true;
           });
