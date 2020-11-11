@@ -4,6 +4,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { MatMenuTrigger} from '@angular/material/menu';
 import UrlUtils from '../../../utils/url.utils';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -35,7 +36,7 @@ export class HeaderComponent implements OnInit {
   }
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
-  onScroll():void {
+  onScroll(): void {
     if (window.pageYOffset > 50) {
       this.isScroll = true;
     } else {
@@ -43,9 +44,12 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+
+    });
   }
 
 }

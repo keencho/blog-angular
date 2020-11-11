@@ -25,7 +25,6 @@ export class MainComponent implements OnInit {
       private postService: PostService,
       private route: ActivatedRoute
   ) {
-    // route.queryParams.subscribe(p => console.log(p));
   }
 
   faAngleRight = faAngleRight;
@@ -34,9 +33,6 @@ export class MainComponent implements OnInit {
   postListRows: Post[] = [] as any;
   postListCount: number;
   postListEmpty = false;
-
-  hasText = StringUtils.hasText;
-  dateFormatter = DateUtils.dateFormatter;
 
   @HostListener('window:scroll')
   onScroll(): void {
