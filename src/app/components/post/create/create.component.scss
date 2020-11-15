@@ -1,0 +1,10 @@
+@import "../../../assets/styles/size";
+
+.ba-post-create-wrapper {
+    min-height: $min-height-header-footer;
+
+    .container {
+        margin: 0 auto;
+        max-width: $default-width;
+    }
+}

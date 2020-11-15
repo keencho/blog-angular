@@ -50,6 +50,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IntroComponent } from './components/common/intro/intro.component';
 import { PaginationComponent } from './components/common/pagination/pagination.component';
 import { SiderbarComponent } from './components/siderbar/siderbar.component';
+import { CreateComponent } from './components/post/create/create.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { SiderbarComponent } from './components/siderbar/siderbar.component';
     FooterComponent,
     IntroComponent,
     PaginationComponent,
-    SiderbarComponent
+    SiderbarComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
