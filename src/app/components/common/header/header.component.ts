@@ -7,6 +7,7 @@ import {ActivatedRoute} from '@angular/router';
 import UrlUtils from '../../../utils/url.utils';
 import StringUtils from '../../../utils/string.utils';
 import {AuthService} from '../../../services/auth.service';
+import auth from '../../../config/auth';
 
 @Component({
   selector: 'app-header',
@@ -61,6 +62,7 @@ export class HeaderComponent implements OnInit {
                 alert('관리자로그인 실패');
                 return;
               }
+              sessionStorage.setItem(auth.sessionName, r.data);
             });
       }
     });

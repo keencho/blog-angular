@@ -17,8 +17,7 @@ export class SiderbarComponent implements OnInit {
   constructor(
       private sidebarService: SidebarService,
       private activatedRoute: ActivatedRoute,
-      private router: Router,
-      private location: Location
+      private router: Router
       ) { }
 
   faGithub = faGithub;
