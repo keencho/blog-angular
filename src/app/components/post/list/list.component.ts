@@ -11,8 +11,8 @@ import {limitDefault} from '../../../models/paging';
 
 @Component({
   selector: 'app-main',
-  templateUrl: './post.list.component.html',
-  styleUrls: ['./post.list.component.scss']
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss']
 })
 export class PostListComponent implements OnInit {
 

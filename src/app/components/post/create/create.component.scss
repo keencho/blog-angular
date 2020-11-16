@@ -5,6 +5,33 @@
 
     .container {
         margin: 0 auto;
+        padding: 3rem 1rem;
         max-width: $default-width;
+
+        .title {
+            display: block;
+            font-size: 30px;
+            margin-bottom: 50px;
+        }
+
+        div {
+            display: inline-block;
+
+            &.box-half {
+                width: 50%;
+                //margin-bottom: 20px;
+                box-shadow: 0 0 0 3px #000 inset;
+
+                @media screen and (max-width: $mobile-max-width){
+                    width: 100%;
+                }
+
+                .box-title {
+                    display: block;
+                    font-size: 20px;
+                }
+            }
+        }
+
     }
 }
