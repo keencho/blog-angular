@@ -30,7 +30,6 @@ export class CreateComponent implements OnInit {
     this.authService.authentication()
         .subscribe(r => {
           if (!r.success) {
-            console.log('test');
             this.authenticationFailure(true);
           }
         });
