@@ -6,49 +6,35 @@
         <div class="title">
             <strong>글 작성하기</strong>
         </div>
-        <div class="box-half">
-            <div class="box-title">
-                태그
-            </div>
-            sdkfljsdklfjds
-            dsklfjsdklf
-            sdklfjsdf
-            dsfkljsdklf
-            sdlkfjsdklf
-            dsklfjsdklf
-            sdklfjsdkfl
-            sdkfljsdklf
-            sdklfjdsklf
-            dsklfjdsklf
-            dsfklsjdflksdj
-            dslkfjsdf
-            lf
-            sdklfjsdf
-            dsfkljsdklf
-            sdlkfjsdklf
-            dsklfjsdklf
-            sdklfjsdkfl
-            sdkfljsdklf
-            sdklfjdsklf
-            dsklfjdsklf
-            dsfklsjdflksdj
+        <div class="box half">
+            <mat-form-field>
+                <mat-label>태그</mat-label>
+                <input matInput [(ngModel)]="tags">
+            </mat-form-field>
         </div>
-        <div class="box-half">
-            <div class="box-title">
-                접근 url
-            </div>
-            df
+        <div class="box half">
+            <mat-form-field>
+                <mat-label>접근 경로</mat-label>
+                <input matInput [(ngModel)]="path">
+            </mat-form-field>
         </div>
-        <div class="box-half">
-            <div class="box-title">
-                썸네일
-            </div>
+        <div class="box full">
+            <mat-form-field>
+                <mat-label>요약</mat-label>
+                <textarea matInput [(ngModel)]="summary" style="min-height: 100px"></textarea>
+            </mat-form-field>
         </div>
-        <div class="box-half">
-            <div class="box-title">
-                공개여부
-            </div>
-        </div>
+<!--        <div class="box full">-->
+<!--            <mat-form-field>-->
+<!--                <mat-label>썸네일</mat-label>-->
+<!--                <input matInput [(ngModel)]="thumbnail">-->
+<!--            </mat-form-field>-->
+<!--        </div>-->
+
+<!--        <div class="box half checkbox">-->
+<!--            <mat-checkbox color="primary">공개 여부</mat-checkbox>-->
+<!--        </div>-->
+        <button (click)="createPost()">테스트 뿅</button>
     </div>
 </div>
 

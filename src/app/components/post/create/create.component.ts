@@ -14,6 +14,15 @@ export class CreateComponent implements OnInit {
       private authService: AuthService
   ) { }
 
+  tags: string;
+  path: string;
+  summary: string;
+  thumbnail: string;
+
+  createPost(): void {
+    console.log(this.summary.replace(/(?:\r\n|\r|\n)/g, '<br>'));
+  }
+
   authenticationFailure(isGoToMain: boolean): void {
     alert('권한이 없습니다.');
     if (isGoToMain) {
@@ -26,13 +35,19 @@ export class CreateComponent implements OnInit {
       this.authenticationFailure(true);
       return;
     }
-
     this.authService.authentication()
-        .subscribe(r => {
-          if (!r.success) {
-            this.authenticationFailure(true);
-          }
-        });
+        .subscribe(
+            res => {
+              if (!res.success) {
+                this.authenticationFailure(true);
+              }
+            },
+            error => {
+              if (error) {
+                this.authenticationFailure(true);
+              }
+            }
+        );
   }
 
 }
