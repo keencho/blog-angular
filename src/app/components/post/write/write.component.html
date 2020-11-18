@@ -1,0 +1,62 @@
+<app-header></app-header>
+<!------------------------------------>
+
+<div class="ba-post-create-wrapper">
+    <div class="container">
+        <!-- 기초정보 입력 -->
+        <div class="basic-info-container">
+            <div class="title">
+                <strong>글 작성하기</strong>
+            </div>
+            <div class="box full">
+                <mat-form-field>
+                    <mat-label>제목</mat-label>
+                    <input matInput [(ngModel)]="title">
+                </mat-form-field>
+            </div>
+            <div class="box half">
+                <mat-form-field>
+                    <mat-label>태그</mat-label>
+                    <input matInput [(ngModel)]="tags">
+                </mat-form-field>
+            </div>
+            <div class="box half">
+                <mat-form-field>
+                    <mat-label>접근 경로</mat-label>
+                    <input matInput [(ngModel)]="path">
+                </mat-form-field>
+            </div>
+            <div class="box full">
+                <mat-form-field>
+                    <mat-label>요약</mat-label>
+                    <textarea matInput [(ngModel)]="summary" style="min-height: 80px"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+        <!-- 기초정보 입력 끝-->
+        <hr />
+        <div class="article-container">
+            <mat-form-field>
+                <textarea
+                        [style.height.px]="getArticleHeight()"
+                        id="post"
+                        matInput [(ngModel)]="contents"
+                        placeholder="글 입력"></textarea>
+            </mat-form-field>
+
+            <div class="preview" [style.height.px]="getArticleHeight()">
+                <markdown ngPreserveWhitespaces [data]="contents" emoji lineNumbers [start] = "1"></markdown>
+            </div>
+        </div>
+        <div class="action-container">
+            <mat-checkbox color="primary" [(ngModel)]="isShow" [checked]="isShow">공개 여부</mat-checkbox>
+            <div class="action-button">
+                <button mat-raised-button color="warn" (click)="this.location.back();">취소</button>
+                <button mat-raised-button color="primary" (click)="writePost()">등록</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!------------------------------------>
+<app-footer></app-footer>
+

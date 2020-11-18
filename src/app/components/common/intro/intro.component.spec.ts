@@ -19,7 +19,7 @@ describe('IntroComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should write', () => {
     expect(component).toBeTruthy();
   });
 });

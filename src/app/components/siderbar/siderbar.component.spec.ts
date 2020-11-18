@@ -19,7 +19,7 @@ describe('SiderbarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should write', () => {
     expect(component).toBeTruthy();
   });
 });

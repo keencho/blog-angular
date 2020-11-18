@@ -1,0 +1,96 @@
+@import "../../../assets/styles/size";
+
+.ba-post-create-wrapper {
+    min-height: $min-height-header-footer;
+
+    .container {
+        padding: 3rem 1rem;
+        max-width: 100%;
+
+        .basic-info-container {
+            max-width: $default-width;
+            margin: 0 auto;
+
+            .title {
+                display: block;
+                font-size: 30px;
+                margin-bottom: 30px;
+            }
+
+            .box {
+                mat-form-field {
+                    padding: 10px;
+                    width: calc(100% - 20px);
+                }
+
+                &.half {
+                    display: inline-block;
+                    width: 50%;
+                    vertical-align: top;
+
+                    @media screen and (max-width: $mobile-max-width){
+                        width: 100%;
+                    }
+                }
+
+                &.full {
+                    display: inline-block;
+                    width: 100%;
+                    vertical-align: top;
+                }
+            }
+        }
+
+        .article-container {
+            //background-color: #FBFDFC;
+            width: 100%;
+
+            mat-form-field {
+                vertical-align: top;
+                display: inline-block;
+                width: 50%;
+
+                @media screen and (max-width: $mobile-max-width){
+                    width: 100%;
+                }
+
+                textarea {
+                    //min-height: 500px;
+                    max-height: 100%;
+                    resize: none;
+                }
+            }
+
+            .preview {
+                //height: 500px;
+                vertical-align: top;
+                display: inline-block;
+                width: calc(50% - 20px);
+                background-color: #F0F0F0;
+                word-break: break-all;
+                overflow: auto;
+                padding: 10px;
+
+                @media screen and (max-width: $mobile-max-width){
+                    display: none;
+                }
+            }
+        }
+
+        .action-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            max-width: $default-width;
+            margin: 0 auto;
+
+            .action-button {
+                margin-left: auto;
+
+                button:first-child {
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}

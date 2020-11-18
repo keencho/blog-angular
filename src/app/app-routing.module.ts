@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import {PostListComponent} from './components/post/list/list.component';
-import {CreateComponent} from './components/post/create/create.component';
+import {WriteComponent} from './components/post/write/write.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'main', component: MainComponent },
   { path: 'post/list', component: PostListComponent },
-  { path: 'post/create', component: CreateComponent}
+  { path: 'post/write', component: WriteComponent}
 ];
 
 @NgModule({

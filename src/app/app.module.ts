@@ -50,8 +50,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IntroComponent } from './components/common/intro/intro.component';
 import { PaginationComponent } from './components/common/pagination/pagination.component';
 import { SiderbarComponent } from './components/siderbar/siderbar.component';
-import { CreateComponent } from './components/post/create/create.component';
+import { WriteComponent } from './components/post/write/write.component';
 import {FormsModule} from '@angular/forms';
+
+import {MarkdownModule} from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,7 @@ import {FormsModule} from '@angular/forms';
     IntroComponent,
     PaginationComponent,
     SiderbarComponent,
-    CreateComponent
+    WriteComponent
   ],
     imports: [
         BrowserModule,
@@ -110,6 +112,7 @@ import {FormsModule} from '@angular/forms';
         MatTableModule,
         FontAwesomeModule,
         FormsModule,
+        MarkdownModule.forRoot()
     ],
   providers: [],
   bootstrap: [AppComponent]
