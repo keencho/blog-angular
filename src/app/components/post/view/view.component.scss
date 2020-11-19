@@ -1,0 +1,30 @@
+@import "../../../assets/styles/size";
+
+.ba-post-view-wrapper {
+    min-height: $min-height-header-footer;
+
+    .container {
+        padding: 3rem 1rem;
+        margin: 0 auto;
+        max-width: $big-width;
+        border: 1px solid blue;
+
+        .contents-wrapper {
+            display: inline-block;
+            widtH: 80%;
+            background-color: green;
+            height: 1000px;
+        }
+
+        .index-wrapper {
+            display: inline-block;
+            width: 20%;
+
+            .index-list {
+                background-color: yellow;
+                position: fixed;
+                top: 113px;
+            }
+        }
+    }
+}

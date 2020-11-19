@@ -6,7 +6,7 @@ import {Post} from '../../../models/post';
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
-  styleUrls: ['./view.component.css']
+  styleUrls: ['./view.component.scss']
 })
 export class ViewComponent implements OnInit {
 
@@ -17,6 +17,7 @@ export class ViewComponent implements OnInit {
   ) { }
 
   post: Post;
+  isShowData = false;
 
   ngOnInit(): void {
     const params = {
@@ -27,7 +28,8 @@ export class ViewComponent implements OnInit {
         .subscribe(
             res => {
               if (res.success) {
-                console.log(res);
+                this.post = res.data;
+                this.isShowData = true;
               } else {
                 alert(res.error);
                 this.router.navigateByUrl('/post/list');

@@ -10,13 +10,13 @@
             <div *ngFor="let d of postListRows" class="article">
                 <img *ngIf="hasText(d.thumbnail)" src="{{d.thumbnail}}"/>
                 <div class="info">
-                    <dlv class="title">
+                    <dlv class="title" (click)="goToView(d.path)">
                         <strong>
                             {{d.title}}
                         </strong>
                     </dlv>
                     <hr>
-                    <div class="summary">
+                    <div class="summary" (click)="goToView(d.path)">
                         <i>
                             {{d.summary}}
                         </i>
@@ -25,11 +25,11 @@
                         <strong>{{dateFormatter(d.created, 'yyyy/MM/dd')}}</strong>
                     </div>
                     <div class="tag">
-                        <div *ngFor="let t of d.tags">
+                        <div *ngFor="let t of d.tags" (click)="onClickTag(t)">
                             {{t}}
                         </div>
                     </div>
-                    <div class="more">
+                    <div class="more" (click)="goToView(d.path)">
                         <strong>더보기</strong>
                         <fa-icon [icon]="faAngleRight"></fa-icon>
                     </div>

@@ -14,7 +14,7 @@ export class PostService {
 
   constructor(private customHttp: CustomHttp) { }
 
-  getUrl = '/api/v1/post/view';
+  getUrl = '/api/v1/post/get';
   listUrl = '/api/v1/post/listInfiniteScroll';
   writeUrl = '/api/v1/post/write';
 

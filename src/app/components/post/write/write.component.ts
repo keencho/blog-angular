@@ -52,7 +52,7 @@ export class WriteComponent implements OnInit {
       summary: this.summary,
       contents: this.contents,
       thumbnail: StringUtils.hasText(this.thumbnail) ? this.thumbnail : null
-    }
+    };
 
     const validation = this.postService.validatePost(post);
 
@@ -78,7 +78,7 @@ export class WriteComponent implements OnInit {
 
   ngOnInit(): void {
     // 무기력한 tab키 허용...
-    document.getElementById("post").addEventListener('keydown', function(e) {
+    document.getElementById('post').addEventListener('keydown', function(e) {
       if (e.keyCode === 9) {
         // @ts-ignore
         const start = this.selectionStart;

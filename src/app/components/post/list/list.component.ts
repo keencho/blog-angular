@@ -6,7 +6,7 @@ import {Post} from '../../../models/post';
 import StringUtils from '../../../utils/string.utils';
 import ScreenUtils from '../../../utils/screen.utils';
 import DateUtils from '../../../utils/date.utils';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {limitDefault} from '../../../models/paging';
 
 @Component({
@@ -23,7 +23,8 @@ export class PostListComponent implements OnInit {
 
   constructor(
       private postService: PostService,
-      private route: ActivatedRoute
+      private router: Router,
+      private activatedRoute: ActivatedRoute
   ) { }
 
   faAngleRight = faAngleRight;
@@ -47,6 +48,20 @@ export class PostListComponent implements OnInit {
     }
   }
 
+  goToView(path: string): void{
+    this.router.navigateByUrl('/post/view/' + path);
+  }
+
+  onClickTag(tag): void {
+    this.router.navigate(
+        [],
+        {
+          relativeTo: this.activatedRoute,
+          queryParams: tag === 'ALL' ? null : {tag}
+        });
+    window.scrollTo({top: 0});
+  }
+
   listPost(start: number): void {
     if (this.requestAvailable) {
       this.requestAvailable = false;
@@ -59,7 +74,6 @@ export class PostListComponent implements OnInit {
 
       this.postService.listPost(params)
           .subscribe(result => {
-            console.log(result);
             this.postListRows = this.postListRows.concat(result.data.rows);
             this.postListCount = result.data.count;
             this.postListEmpty = result.data.count === 0;
@@ -70,7 +84,7 @@ export class PostListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
+    this.activatedRoute.queryParams.subscribe(params => {
       this.tags = params.tag;
       this.date = params.date;
       this.start = 0;
