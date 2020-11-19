@@ -14,7 +14,18 @@ export class PostService {
 
   constructor(private customHttp: CustomHttp) { }
 
+  getUrl = '/api/v1/post/view';
   listUrl = '/api/v1/post/listInfiniteScroll';
+  writeUrl = '/api/v1/post/write';
+
+  getPost(params): Observable<ApiResult<Post>> {
+    return this.customHttp.get(this.getUrl, params);
+  }
+
+  listPost(params): Observable<ApiResult<PostListData>> {
+    params.limit = limitDefault;
+    return this.customHttp.get(this.listUrl, params);
+  }
 
   validatePost(post: Post): Validation {
 
@@ -52,8 +63,7 @@ export class PostService {
     return validation
   }
 
-  listPost(params): Observable<ApiResult<PostListData>> {
-    params.limit = limitDefault;
-    return this.customHttp.get(this.listUrl, params);
+  writePost(post: Post): Observable<ApiResult<any>> {
+    return this.customHttp.post(this.writeUrl, post);
   }
 }

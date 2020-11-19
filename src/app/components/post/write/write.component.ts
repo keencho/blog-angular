@@ -28,6 +28,10 @@ export class WriteComponent implements OnInit {
   contents: string;
   isShow = true;
 
+  goBack(): void {
+    this.location.back();
+  }
+
   authenticationFailure(isGoToMain: boolean): void {
     alert('권한이 없습니다.');
     if (isGoToMain) {
@@ -47,7 +51,7 @@ export class WriteComponent implements OnInit {
       title: this.title,
       summary: this.summary,
       contents: this.contents,
-      thumbnail: this.thumbnail
+      thumbnail: StringUtils.hasText(this.thumbnail) ? this.thumbnail : null
     }
 
     const validation = this.postService.validatePost(post);
@@ -57,6 +61,19 @@ export class WriteComponent implements OnInit {
       return;
     }
 
+    this.postService.writePost(post)
+        .subscribe(
+            res => {
+              if (res.success) {
+                this.router.navigateByUrl('/post/list');
+              } else {
+                alert(res.error);
+              }
+            },
+            error => {
+              alert(error.error.message);
+            }
+        );
   }
 
   ngOnInit(): void {

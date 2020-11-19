@@ -17,16 +17,14 @@ import {limitDefault} from '../../../models/paging';
 export class PostListComponent implements OnInit {
 
   start: number;
-  tag: string;
+  tags: string;
   date: string;
   requestAvailable = true;
 
   constructor(
       private postService: PostService,
       private route: ActivatedRoute
-  ) {
-    // route.queryParams.subscribe(p => console.log(p));
-  }
+  ) { }
 
   faAngleRight = faAngleRight;
   faGithub = faGithub;
@@ -55,12 +53,13 @@ export class PostListComponent implements OnInit {
 
       const params = {
         start,
-        tag: StringUtils.hasText(this.tag) ? this.tag : null,
+        tags: StringUtils.hasText(this.tags) ? this.tags : null,
         date: StringUtils.hasText(this.date) ? this.date : null
       };
 
       this.postService.listPost(params)
           .subscribe(result => {
+            console.log(result);
             this.postListRows = this.postListRows.concat(result.data.rows);
             this.postListCount = result.data.count;
             this.postListEmpty = result.data.count === 0;
@@ -72,7 +71,7 @@ export class PostListComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.tag = params.tag;
+      this.tags = params.tag;
       this.date = params.date;
       this.start = 0;
 

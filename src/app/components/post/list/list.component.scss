@@ -72,6 +72,10 @@
                             width: 100%;
                             height: 140px;
                             overflow-y: hidden;
+
+                            i {
+                                white-space: pre-line;
+                            }
                         }
 
                         .date {

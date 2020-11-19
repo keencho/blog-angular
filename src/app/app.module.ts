@@ -54,6 +54,7 @@ import { WriteComponent } from './components/post/write/write.component';
 import {FormsModule} from '@angular/forms';
 
 import {MarkdownModule} from 'ngx-markdown';
+import { ViewComponent } from './components/post/view/view.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import {MarkdownModule} from 'ngx-markdown';
     IntroComponent,
     PaginationComponent,
     SiderbarComponent,
-    WriteComponent
+    WriteComponent,
+    ViewComponent
   ],
     imports: [
         BrowserModule,
