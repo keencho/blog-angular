@@ -5,7 +5,18 @@
     <div class="ba-post-view-wrapper">
         <div class="container">
             <div class="contents-wrapper">
-                콘텐츠
+                <div class="title">
+                    <strong>{{post.title}}</strong>
+                </div>
+                <div class="date">{{dateFormatter(post.created, 'yyyy년 MM월 dd일')}}</div>
+                <div class="tags">
+                    <div
+                            class="tag"
+                            *ngFor="let t of post.tags"
+                            (click)="onClickTag(t)">{{t}}</div>
+                </div>
+                <hr class="division" />
+                <div class="contents" markdown emoji>{{post.contents}}</div>
             </div>
             <div class="index-wrapper">
                 <div class="index-list">

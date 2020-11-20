@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PostService} from '../../../services/post.service';
 import {Post} from '../../../models/post';
+import DateUtils from '../../../utils/date.utils';
 
 @Component({
   selector: 'app-view',
@@ -18,6 +19,11 @@ export class ViewComponent implements OnInit {
 
   post: Post;
   isShowData = false;
+  dateFormatter = DateUtils.dateFormatter;
+
+  onClickTag(tag): void {
+      this.router.navigateByUrl('/post/list?tag=' + tag);
+  }
 
   ngOnInit(): void {
     const params = {
@@ -41,5 +47,4 @@ export class ViewComponent implements OnInit {
             }
         );
   }
-
 }

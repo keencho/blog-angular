@@ -7,18 +7,75 @@
         padding: 3rem 1rem;
         margin: 0 auto;
         max-width: $big-width;
-        border: 1px solid blue;
 
         .contents-wrapper {
             display: inline-block;
             widtH: 80%;
-            background-color: green;
-            height: 1000px;
+            //box-shadow: 0 0 0 3px #000 inset;
+
+            @media screen and (max-width: $mobile-max-width){
+                width: 100%;
+            }
+
+            .title {
+                font-size: 48px;
+            }
+
+            .date {
+                font-size: 15px;
+                margin-top: 40px;
+                color: rgb(73, 80, 87);
+            }
+
+            .tags {
+                margin-top: 10px;
+
+                .tag {
+                    display: inline-block;
+                    cursor: pointer;
+                    background-color: #808080;
+                    border-radius: 5px;
+                    color: #fff;
+                    transition: 0.3s;
+                    font-size: 15px;
+                    padding: 7px 10px;
+
+                    &:not(:first-child) {
+                        margin-left: 10px;
+                    }
+
+                    &:before {
+                        content: "#";
+                    }
+
+                    &:hover {
+                        background-color: #606060;
+                    }
+                }
+            }
+
+            hr.division {
+                margin: 30px 0;
+                border-top: 1px solid #d9d9d9;
+            }
+
+            .contents {
+                h1 { font-size: 40px; }
+                h2 { font-size: 32px; }
+                h3 { font-size: 24px; }
+                h4 { font-size: 18px; }
+                h5 { font-size: 16px; }
+                h6 { font-size: 12px; }
+            }
         }
 
         .index-wrapper {
             display: inline-block;
             width: 20%;
+
+            @media screen and (max-width: $mobile-max-width){
+                display: none;
+            }
 
             .index-list {
                 background-color: yellow;
