@@ -32,6 +32,7 @@ export class WriteComponent implements OnInit {
     this.location.back();
   }
 
+  // true - goToMain
   authenticationFailure(isGoToMain: boolean): void {
     alert('권한이 없습니다.');
     if (isGoToMain) {
