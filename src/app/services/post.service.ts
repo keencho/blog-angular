@@ -34,33 +34,33 @@ export class PostService {
 
     switch (true) {
       case !StringUtils.hasText(post.title):
-        error = "제목";
+        error = '제목';
         break;
       case post.tags.length < 1:
-        error = "태그";
+        error = '태그';
         break;
       case !StringUtils.hasText(post.path):
-        error = "접근 경로";
+        error = '접근 경로';
         break;
       case !StringUtils.hasText(post.summary):
-        error = "요약";
+        error = '요약';
         break;
       case !StringUtils.hasText(post.contents):
-        error = "컨텐츠";
+        error = '컨텐츠';
         break;
     }
 
     if (StringUtils.hasText(error)) {
       success = false;
-      error += "을(를) 입력하세요.";
+      error += '을(를) 입력하세요.';
     }
 
     const validation: Validation = {
-      success: success,
-      error: error
-    }
+      success,
+      error
+    };
 
-    return validation
+    return validation;
   }
 
   writePost(post: Post): Observable<ApiResult<any>> {

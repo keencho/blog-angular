@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../../../services/auth.service';
 import {Location} from '@angular/common';
 import {PostService} from '../../../services/post.service';
@@ -14,6 +14,7 @@ import StringUtils from '../../../utils/string.utils';
 export class WriteComponent implements OnInit {
 
   constructor(
+      private route: ActivatedRoute,
       private router: Router,
       private location: Location,
       private postService: PostService,
@@ -27,6 +28,9 @@ export class WriteComponent implements OnInit {
   thumbnail: string;
   contents: string;
   isShow = true;
+
+  post: Post;
+  isCreate: boolean;
 
   goBack(): void {
     this.location.back();
@@ -105,6 +109,33 @@ export class WriteComponent implements OnInit {
               if (!res.success) {
                 this.authenticationFailure(true);
               }
+
+              if (!StringUtils.hasText(this.route.snapshot.paramMap.get('path'))) {
+                this.isCreate = true;
+                return;
+              }
+
+              this.isCreate = false;
+
+              const params = {
+                path: this.route.snapshot.paramMap.get('path')
+              };
+
+              this.postService.getPost(params)
+                  .subscribe(
+                      post => {
+                        if (post.success) {
+                          this.post = post.data;
+                        } else {
+                          alert(res.error);
+                          this.router.navigateByUrl('/post/list');
+                        }
+                      },
+                      error => {
+                        alert(error.error.message);
+                        this.router.navigateByUrl('/post/list');
+                      }
+                  );
             },
             error => {
               if (error) {

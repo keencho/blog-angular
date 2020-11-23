@@ -3,9 +3,27 @@
 
 html, body { height: 100%; margin: 0; padding: 0; }
 
+blockquote {
+        background: #E0E0E0;
+        border-left: 4px solid #A9A9A9;
+        border-radius: 4px;
+        color: #666;
+        margin: 20px 0;
+        padding: 15px 15px;
+        p {
+                color: black;
+        }
+}
+
+p { margin: 0px !important; }
+
 // 이런식으로 기본 폰트를 변경할수 있다.
 @import '~@angular/material/theming';
 $custom-typography: mat-typography-config(
-        $font-family: $font
+        $font-family: "Roboto, Noto Sans KR !important",
+        $headline: mat-typography-level(32px, 40px, 400),
+        $title:         mat-typography-level(24px, 32px, 500),
+        $subheading-2:  mat-typography-level(20px, 32px, 400),
+        $subheading-1:  mat-typography-level(16px, 28px, 400),
 );
 @include mat-core($custom-typography);

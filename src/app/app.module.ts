@@ -55,6 +55,7 @@ import {FormsModule} from '@angular/forms';
 
 import {MarkdownModule} from 'ngx-markdown';
 import { ViewComponent } from './components/post/view/view.component';
+import {DisqusModule} from 'ngx-disqus';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,8 @@ import { ViewComponent } from './components/post/view/view.component';
         MatTableModule,
         FontAwesomeModule,
         FormsModule,
-        MarkdownModule.forRoot()
+        MarkdownModule.forRoot(),
+        DisqusModule.forRoot('keencho-blog')
     ],
   providers: [],
   bootstrap: [AppComponent]
