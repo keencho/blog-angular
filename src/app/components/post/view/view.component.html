@@ -1,12 +1,15 @@
 <div *ngIf="isShowData">
     <app-header></app-header>
     <!------------------------------------------------------------->
-
     <div class="ba-post-view-wrapper">
         <div class="container">
             <div class="contents-wrapper">
                 <div class="title">
                     <strong>{{post.title}}</strong>
+                </div>
+                <div class="action" *ngIf="isAdmin">
+                    <button mat-raised-button color="primary" (click)="update()">수정</button>
+                    <button mat-raised-button color="warn" (click)="delete()">삭제</button>
                 </div>
                 <div class="date">{{dateFormatter(post.created, 'yyyy년 MM월 dd일')}}</div>
                 <div class="tags">
@@ -24,6 +27,7 @@
                 </div>
             </div>
             <div class="comments-wrapper">
+                <hr class="division" />
                 <disqus [identifier]="post._id"></disqus>
             </div>
         </div>

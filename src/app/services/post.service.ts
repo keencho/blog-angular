@@ -17,6 +17,7 @@ export class PostService {
   getUrl = '/api/v1/post/get';
   listUrl = '/api/v1/post/listInfiniteScroll';
   writeUrl = '/api/v1/post/write';
+  deleteUrl = '/api/v1/post/delete';
 
   getPost(params): Observable<ApiResult<Post>> {
     return this.customHttp.get(this.getUrl, params);
@@ -65,5 +66,9 @@ export class PostService {
 
   writePost(post: Post): Observable<ApiResult<any>> {
     return this.customHttp.post(this.writeUrl, post);
+  }
+
+  deletePost(post: Post): Observable<ApiResult<any>> {
+    return this.customHttp.post(this.deleteUrl, post);
   }
 }

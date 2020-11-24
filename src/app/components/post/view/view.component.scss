@@ -8,6 +8,11 @@
         margin: 0 auto;
         max-width: $big-width;
 
+        hr.division {
+            margin: 30px 0;
+            border-top: 1px solid #d9d9d9;
+        }
+
         .contents-wrapper {
             display: inline-block;
             widtH: 80%;
@@ -18,7 +23,17 @@
             }
 
             .title {
+                display: inline-block;
                 font-size: 48px;
+            }
+
+            .action {
+                display: inline-block;
+                float: right;
+
+                button {
+                    margin-left: 20px;
+                }
             }
 
             .date {
@@ -54,11 +69,6 @@
                 }
             }
 
-            hr.division {
-                margin: 30px 0;
-                border-top: 1px solid #d9d9d9;
-            }
-
             .contents {
                 h1 { font-size: 40px; }
                 h2 { font-size: 32px; }
@@ -86,6 +96,9 @@
 
         .comments-wrapper {
             widtH: 80%;
+            @media screen and (max-width: $mobile-max-width){
+                width: 100%;
+            }
         }
     }
 }

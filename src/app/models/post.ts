@@ -1,6 +1,7 @@
 export interface Post {
     _id?: string;
     created?: Date;
+    isCreate?: boolean;
     tags: string[];
     path: string;
     show: boolean;
