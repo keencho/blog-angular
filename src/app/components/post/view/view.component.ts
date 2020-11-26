@@ -64,6 +64,7 @@ export class ViewComponent implements OnInit {
               if (res.success) {
                 this.post = res.data;
                 this.isShowData = true;
+                console.log(this.post.contents.split('\t'));
               } else {
                 alert(res.error);
                 this.router.navigateByUrl('/post/list');

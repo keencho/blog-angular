@@ -1,14 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule, SecurityContext} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
-import { MainComponent } from './components/main/main.component';
-import { PostListComponent } from './components/post/list/list.component';
-import { RouterModule } from '@angular/router';
-import { HeaderComponent } from './components/common/header/header.component';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AppRoutingModule} from './app-routing.module';
+import {MainComponent} from './components/main/main.component';
+import {PostListComponent} from './components/post/list/list.component';
+import {RouterModule} from '@angular/router';
+import {HeaderComponent} from './components/common/header/header.component';
 
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -45,16 +45,16 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
-import { FooterComponent } from './components/common/footer/footer.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { IntroComponent } from './components/common/intro/intro.component';
-import { PaginationComponent } from './components/common/pagination/pagination.component';
-import { SiderbarComponent } from './components/siderbar/siderbar.component';
-import { WriteComponent } from './components/post/write/write.component';
+import {FooterComponent} from './components/common/footer/footer.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {IntroComponent} from './components/common/intro/intro.component';
+import {PaginationComponent} from './components/common/pagination/pagination.component';
+import {SiderbarComponent} from './components/siderbar/siderbar.component';
+import {WriteComponent} from './components/post/write/write.component';
 import {FormsModule} from '@angular/forms';
 
 import {MarkdownModule} from 'ngx-markdown';
-import { ViewComponent } from './components/post/view/view.component';
+import {ViewComponent} from './components/post/view/view.component';
 import {DisqusModule} from 'ngx-disqus';
 
 @NgModule({
@@ -115,7 +115,7 @@ import {DisqusModule} from 'ngx-disqus';
         MatTableModule,
         FontAwesomeModule,
         FormsModule,
-        MarkdownModule.forRoot(),
+        MarkdownModule.forRoot({ sanitize: SecurityContext.NONE }),
         DisqusModule.forRoot('keencho-blog')
     ],
   providers: [],

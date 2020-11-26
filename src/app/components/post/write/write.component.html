@@ -51,7 +51,7 @@
         <div class="action-container">
             <mat-checkbox color="primary" [(ngModel)]="isShow" [checked]="isShow">공개 여부</mat-checkbox>
             <div class="action-button">
-                <button mat-raised-button color="primary" (click)="writePost()">등록</button>
+                <button mat-raised-button color="primary" (click)="writePost()">{{isCreate ? "등록" : "수정"}}</button>
                 <button mat-raised-button color="warn" (click)="goBack()">취소</button>
             </div>
         </div>

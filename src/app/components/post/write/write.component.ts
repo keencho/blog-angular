@@ -73,7 +73,11 @@ export class WriteComponent implements OnInit {
             .subscribe(
                 res => {
                     if (res.success) {
-                        this.router.navigateByUrl('/post/list');
+                        if (this.isCreate) {
+                            this.router.navigateByUrl('/post/list');
+                        } else {
+                            this.router.navigateByUrl('/post/view/' + this.path);
+                        }
                     } else {
                         alert(res.error);
                     }
