@@ -23,6 +23,7 @@
     <div class="ba-nav-center">
         <div [routerLink]="['/main']" routerLinkActive="active">HOME</div>
         <div [routerLink]="['/post/list']" routerLinkActive="active">LIST</div>
+        <div [routerLink]="['/post/write']" routerLinkActive="active" *ngIf="isAdmin">WRITE</div>
         <div>CONTACT</div>
     </div>
     <div class="ba-nav-right">

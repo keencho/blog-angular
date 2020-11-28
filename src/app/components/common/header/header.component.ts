@@ -19,13 +19,14 @@ export class HeaderComponent implements OnInit {
   constructor(
       private route: ActivatedRoute,
       private authService: AuthService
-  ) {}
+  ) { }
 
   // font-awesome 사용시 이런식으로 import 해와서 변수에 할당해줘야한다.
   faGithub = faGithub;
   faEnvelope = faEnvelope;
   faHome = faHome;
 
+  isAdmin = false;
   isScroll = false;
 
   // ViewChild로 html의 컴포넌트(?)를 가져올때 해당 컴포넌트에는 type이 지정되어 있어야 하는것같다.
@@ -63,7 +64,13 @@ export class HeaderComponent implements OnInit {
                 return;
               }
               sessionStorage.setItem(auth.sessionName, r.data);
+              this.isAdmin = true;
             });
+      }
+
+      // 무엇이 프론트엔드의 세션처리에 좋은 방식일까...? 붙잡고 물어보고싶당...
+      if (StringUtils.hasText(sessionStorage.getItem(auth.sessionName))) {
+        this.isAdmin = true;
       }
     });
   }
