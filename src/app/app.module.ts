@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
 import {MainComponent} from './components/main/main.component';
-import {PostListComponent} from './components/post/list/list.component';
+import {PostArchivesComponent} from './components/post/archives/archives.component';
 import {RouterModule} from '@angular/router';
 import {HeaderComponent} from './components/common/header/header.component';
 
@@ -61,7 +61,7 @@ import {DisqusModule} from 'ngx-disqus';
   declarations: [
     AppComponent,
     MainComponent,
-    PostListComponent,
+    PostArchivesComponent,
     HeaderComponent,
     FooterComponent,
     IntroComponent,

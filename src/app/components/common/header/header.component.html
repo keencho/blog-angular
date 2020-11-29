@@ -11,9 +11,9 @@
             <mat-icon>home</mat-icon>
             <span>HOME</span>
         </button>
-        <button mat-menu-item [routerLink]="['/post/list']">
+        <button mat-menu-item [routerLink]="['/post/archives']">
             <mat-icon>category</mat-icon>
-            <span>LIST</span>
+            <span>ARCHIVES</span>
         </button>
         <button mat-menu-item>
             <mat-icon>contacts</mat-icon>
@@ -22,7 +22,7 @@
     </mat-menu>
     <div class="ba-nav-center">
         <div [routerLink]="['/main']" routerLinkActive="active">HOME</div>
-        <div [routerLink]="['/post/list']" routerLinkActive="active">LIST</div>
+        <div [routerLink]="['/post/archives']" routerLinkActive="active">ARCHIVES</div>
         <div [routerLink]="['/post/write']" routerLinkActive="active" *ngIf="isAdmin">WRITE</div>
         <div>CONTACT</div>
     </div>

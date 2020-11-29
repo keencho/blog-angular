@@ -74,7 +74,7 @@ export class WriteComponent implements OnInit {
                 res => {
                     if (res.success) {
                         if (this.isCreate) {
-                            this.router.navigateByUrl('/post/list');
+                            this.router.navigateByUrl('/post/archives');
                         } else {
                             this.router.navigateByUrl('/post/view/' + this.path);
                         }
@@ -134,7 +134,7 @@ export class WriteComponent implements OnInit {
                     },
                     error => {
                         alert(error.error.message);
-                        this.router.navigateByUrl('/post/list');
+                        this.router.navigateByUrl('/post/archives');
                     }
                 );
         });

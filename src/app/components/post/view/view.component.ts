@@ -25,7 +25,7 @@ export class ViewComponent implements OnInit {
   dateFormatter = DateUtils.dateFormatter;
 
   onClickTag(tag): void {
-      this.router.navigateByUrl('/post/list?tag=' + tag);
+      this.router.navigateByUrl('/post/archives?tag=' + tag);
   }
 
   update(): void {
@@ -40,7 +40,7 @@ export class ViewComponent implements OnInit {
               .subscribe(
                   res => {
                       if (res.success) {
-                          this.router.navigateByUrl('/post/list')
+                          this.router.navigateByUrl('/post/archives')
                               .then(() => alert('삭제가 완료되었습니다.'));
                       } else {
                           alert(res.error);
@@ -67,12 +67,12 @@ export class ViewComponent implements OnInit {
                 console.log(this.post.contents.split('\t'));
               } else {
                 alert(res.error);
-                this.router.navigateByUrl('/post/list');
+                this.router.navigateByUrl('/post/archives');
               }
             },
             error => {
               alert(error.error.message);
-              this.router.navigateByUrl('/post/list');
+              this.router.navigateByUrl('/post/archives');
             }
         );
 
