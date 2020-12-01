@@ -1,9 +1,9 @@
 <div class="ba-main-intro">
-    <span class="title">
-        <strong>KEENCHO'S </strong>BLOG
+    <span class="title" *ngIf="txt1 || txt2">
+        <strong>{{txt1}} </strong>{{txt2}}
     </span>
-    <span class="welcome">WELCOME ON MY BLOG</span>
-    <span class="introduce">
-        <em>내맘대로 글쓰는 블로그.</em>
+    <span class="welcome" *ngIf="txt3">{{txt3}}</span>
+    <span class="introduce" *ngIf="txt4">
+        <em>{{txt4}}</em>
     </span>
 </div>
