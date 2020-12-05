@@ -16,7 +16,9 @@
 
             &.archives-wrapper {
                 width: 70%;
-                background-color: blue;
+                background-color: greenyellow;
+                margin-top: 25px;
+
                 @media screen and (max-width: $mobile-max-width){
                     width: 100%;
                 }
