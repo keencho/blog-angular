@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {faCalendarAlt} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-main',
@@ -8,6 +9,8 @@ import {Component, OnInit} from '@angular/core';
 export class PostArchivesComponent implements OnInit {
 
   constructor() { }
+
+  faCalendarAlt = faCalendarAlt;
 
   ngOnInit(): void { }
 
