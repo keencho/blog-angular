@@ -11,3 +11,8 @@ export interface Sidebar {
     tag: [Tag];
     archive: [Archive];
 }
+
+export enum SidebarLocation {
+    MAIN,
+    ARCHIVES
+}

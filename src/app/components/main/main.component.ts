@@ -8,6 +8,7 @@ import StringUtils from '../../utils/string.utils';
 import DateUtils from '../../utils/date.utils';
 import ScreenUtils from '../../utils/screen.utils';
 import {limitDefault} from '../../models/paging';
+import {SidebarLocation} from '../../models/sidebar';
 
 @Component({
   selector: 'app-main',
@@ -36,6 +37,7 @@ export class MainComponent implements OnInit {
 
   hasText = StringUtils.hasText;
   dateFormatter = DateUtils.dateFormatter;
+  sidebarLocation = SidebarLocation.MAIN;
 
   @HostListener('window:scroll')
   onScroll(): void {
