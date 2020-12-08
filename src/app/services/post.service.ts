@@ -6,6 +6,7 @@ import {limitDefault} from '../models/paging';
 import {CustomHttp} from './custom.http.service';
 import {Validation} from '../models/validation';
 import StringUtils from '../utils/string.utils';
+import {Archives} from '../models/archives';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class PostService {
   listUrl = '/api/v1/post/listInfiniteScroll';
   writeUrl = '/api/v1/post/write';
   deleteUrl = '/api/v1/post/delete';
+  listArchivesUrl = '/api/v1/post/listArchives';
 
   getPost(params): Observable<ApiResult<Post>> {
     return this.customHttp.get(this.getUrl, params);
@@ -26,6 +28,10 @@ export class PostService {
   listPost(params): Observable<ApiResult<PostListData>> {
     params.limit = limitDefault;
     return this.customHttp.get(this.listUrl, params);
+  }
+
+  listArchives(): Observable<ApiResult<Archives[]>> {
+    return this.customHttp.get(this.listArchivesUrl, null);
   }
 
   validatePost(post: Post): Validation {
