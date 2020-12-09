@@ -4,6 +4,7 @@ import {PostService} from '../../../services/post.service';
 import {Post} from '../../../models/post';
 import DateUtils from '../../../utils/date.utils';
 import {AuthService} from '../../../services/auth.service';
+import * as marked from 'marked';
 
 @Component({
   selector: 'app-view',
@@ -20,6 +21,7 @@ export class ViewComponent implements OnInit {
   ) { }
 
   post: Post;
+  postHeadings: marked.Token[];
   isAdmin = false;
   isShowData = false;
   dateFormatter = DateUtils.dateFormatter;
@@ -53,6 +55,11 @@ export class ViewComponent implements OnInit {
       }
   }
 
+  onClickHeading(header): void {
+      alert('dd');
+    this.router.navigate(['/post/view/' + this.post.path], { fragment: header });
+  }
+
   ngOnInit(): void {
     const params = {
       path: this.route.snapshot.paramMap.get('path')
@@ -64,7 +71,8 @@ export class ViewComponent implements OnInit {
               if (res.success) {
                 this.post = res.data;
                 this.isShowData = true;
-                console.log(this.post.contents.split('\t'));
+                // @ts-ignore
+                this.postHeadings = marked.lexer(res.data.contents).filter(l => l.type === 'heading');
               } else {
                 alert(res.error);
                 this.router.navigateByUrl('/post/archives');
@@ -76,7 +84,7 @@ export class ViewComponent implements OnInit {
             }
         );
 
-    if(this.authService.chkTokenExists()) {
+    if (this.authService.chkTokenExists()) {
         this.authService.authentication()
             .subscribe(
                 res => {

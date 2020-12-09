@@ -88,9 +88,32 @@
             }
 
             .index-list {
-                background-color: yellow;
                 position: fixed;
+                margin-left: 10px;
+                padding-left: 10px;
                 top: 113px;
+                border-left: 1px solid #E0E0E0;
+
+                a {
+                    text-decoration: none;
+                    display: block;
+
+                    &.anchor-2 { margin-left: 3px; }
+                    &.anchor-3 { margin-left: 6px; }
+                    &.anchor-4 { margin-left: 9px; }
+                    &.anchor-5 { margin-left: 12px; }
+                    &.anchor-6 { margin-left: 15px; }
+
+                    &:link,
+                    &:visited {
+                        color: #495057;
+                        text-decoration: none;
+                    }
+
+                    &:hover { color: black; }
+
+                    &:not(:first-child) { margin-top: 5px; }
+                }
             }
         }
 

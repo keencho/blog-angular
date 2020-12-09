@@ -23,7 +23,9 @@
             </div>
             <div class="index-wrapper">
                 <div class="index-list" markdown emoji>
-                    사이드바 인덱스 리스트..
+                    <a *ngFor="let h of postHeadings" [className]="'anchor-' + h.depth" [routerLink]="'/post/view/' + post.path + '#' + h.tokens[0].text">
+                        {{h.text}}
+                    </a>
                 </div>
             </div>
             <div class="comments-wrapper">
