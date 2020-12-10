@@ -98,11 +98,12 @@
                     text-decoration: none;
                     display: block;
 
-                    &.anchor-2 { margin-left: 3px; }
-                    &.anchor-3 { margin-left: 6px; }
-                    &.anchor-4 { margin-left: 9px; }
-                    &.anchor-5 { margin-left: 12px; }
-                    &.anchor-6 { margin-left: 15px; }
+                    &.anchor-1 { font-size: 30px; margin-bottom: 15px; }
+                    &.anchor-2 { font-size: 20px; margin-left: 3px; }
+                    &.anchor-3 { font-size: 15px; margin-left: 6px; }
+                    &.anchor-4 { font-size: 12px; margin-left: 9px; }
+                    &.anchor-5 { font-size: 10px; margin-left: 12px; }
+                    &.anchor-6 { font-size: 10px; margin-left: 15px; }
 
                     &:link,
                     &:visited {

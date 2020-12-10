@@ -23,7 +23,9 @@
             </div>
             <div class="index-wrapper">
                 <div class="index-list" markdown emoji>
-                    <a *ngFor="let h of postHeadings" [className]="'anchor-' + h.depth" [routerLink]="'/post/view/' + post.path + '#' + h.tokens[0].text">
+                    <a *ngFor="let h of postHeadings"
+                       [className]="'anchor-' + h.depth"
+                       [href]="currentUrl + '#' + h.anchor" >
                         {{h.text}}
                     </a>
                 </div>
