@@ -56,6 +56,7 @@ import {FormsModule} from '@angular/forms';
 import {MarkdownModule} from 'ngx-markdown';
 import {ViewComponent} from './components/post/view/view.component';
 import {DisqusModule} from 'ngx-disqus';
+import { NotFoundComponent } from './components/common/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import {DisqusModule} from 'ngx-disqus';
     PaginationComponent,
     SiderbarComponent,
     WriteComponent,
-    ViewComponent
+    ViewComponent,
+    NotFoundComponent
   ],
     imports: [
         BrowserModule,
