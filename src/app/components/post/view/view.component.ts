@@ -104,12 +104,14 @@ export class ViewComponent implements OnInit {
             });
           } else {
             alert(res.error);
-            this.router.navigateByUrl('/post/archives');
+            this.router.navigateByUrl('/post/archives')
+              .then();
           }
         },
         error => {
           alert(error.error.message);
-          this.router.navigateByUrl('/post/archives');
+          this.router.navigateByUrl('/post/archives')
+            .then();
         }
       );
   }
