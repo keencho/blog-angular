@@ -75,6 +75,9 @@ export class PostService {
   }
 
   deletePost(post: Post): Observable<ApiResult<any>> {
-    return this.customHttp.post(this.deleteUrl, post);
+    const params = {
+      '_id': post._id
+    }
+    return this.customHttp.post(this.deleteUrl, params);
   }
 }
